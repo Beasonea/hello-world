@@ -34,24 +34,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-name: webdav_lastsync
-
-on:
-  schedule:
-    - cron: '0 4,16 * * *'
-  workflow_dispatch:
-
-jobs:
-  fix:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Fix
-        run: |
-          export SYNCFILE="lastsync.txt"
-          export REMOTEFILE=" https://dav.jianguoyun.com/dav/zotero/${SYNCFILE}"
-          touch ${SYNCFILE}
-          curl -u ${2021204050@stu.njau.edu.cn}:${aeaadfxsct3i3kar} -T ${SYNCFILE} ${REMOTEFILE}
-        env:
-          KOOFR_EMAIL: ${{ secrets.2021204050@stu.njau.edu.cn }}
-          KOOFR_DAVPASS: ${{ secrets.aeaadfxsct3i3kar }}
